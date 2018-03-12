@@ -12,7 +12,7 @@
   + NPM
   + Yarn
 - Basic Node.js
-  + Understading Async Programming
+  + Understanding Async Programming
   + Node.js Server
   + Using Databases
   + The Request Modules

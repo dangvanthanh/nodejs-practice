@@ -1,0 +1,14 @@
+{
+  "name": "nodejs",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Dang Van Thanh <chieuhue@gmail.com> (dangthanh.org)",
+  "license": "MIT",
+  "dependencies": {
+    "npm": "^5.7.1"
+  }
+}
