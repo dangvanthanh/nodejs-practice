@@ -4,17 +4,27 @@
   "description": "Learning Objectives",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "debug": "DEBUG=express* node index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dangvanthanh/learning-objectives.git"
   },
-  "keywords": ["nodejs", "graphql"],
+  "keywords": [
+    "nodejs",
+    "graphql"
+  ],
   "author": "Dang Van Thanh <chieuhue@gmail.com> (dangthanh.org)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/dangvanthanh/learning-objectives/issues"
   },
-  "homepage": "https://github.com/dangvanthanh/learning-objectives#readme"
+  "homepage": "https://github.com/dangvanthanh/learning-objectives#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "pug": "^2.0.1"
+  }
 }
