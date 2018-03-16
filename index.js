@@ -1,51 +1,69 @@
-// The http module for Node.js server
-// http module is very low-level
-// const http = require('http')
-// const port = 3000
-
-// const requestHandler = (request, response) => {
-//   console.log(request.url)
-//   response.end('Hello Node.js Server')
-// }
-
-// const server = http.createServer(requestHandler)
-
-// server.listen(port, err => {
-//   if (err) {
-//     return console.log('Something bad happened', err)
-//   }
-
-//   console.log(`Server is listening on ${port}`)
-// })
-
-// Express
-// $ npm install express --save-dev
-// $ npm install pug --save-dev
 const express = require('express')
+const pg = require('pg')
 const app = express()
 const port = 3000
 
-app.set('view engine', 'pug')
+const conString = 'postgres://username:password@localhost/learning_objectives'
 
-app.get('/', (req, res) => {
-  // response.send('Hello from express')
-  res.render('index', {
-    title: 'Template',
-    message: 'Express and Pug Template'
+// pg.connect(conString, (err, client, done) => {
+//   if (err) {
+//     return console.error('Error fetching client from pool', err)
+//   }
+
+//   client.query(
+//     'SELECT $1::varchar AS my_first_query',
+//     ['learning_objectives'],
+//     (err, result) => {
+//       done()
+
+//       if (err) {
+//         return console.error('Error happened during query', err)
+//       }
+
+//       console.log(result.rows[0])
+//       process.exit()
+//     }
+//   )
+// })
+
+app.post('/users', (req, res, next) => {
+  const user = req.body
+
+  pg.connect(conString, (err, client, done) => {
+    if (err) {
+      return next(err)
+    }
+
+    client.query(
+      'INSERT INTO users (name, age) VALUES ($1, $2);',
+      [user.name, user.age],
+      (err, result) => {
+        done()
+
+        if (err) {
+          return next(err)
+        }
+
+        res.send(200)
+      }
+    )
   })
 })
 
-app.get('/hello', (req, res) => {
-  res.render('hello', {
-    title: 'Hello',
-    name: 'Dang Van Thanh'
+app.get('/users', (req, res, next) => {
+  pg.connect(conString, (err, client, done) => {
+    if (err) {
+      return next(err)
+    }
+
+    client.query('SELECT name, age FROM users;', [], (err, result) => {
+      done()
+
+      if (err) {
+        return next(err)
+      }
+
+      res.json(result.rows)
+    })
   })
-})
-
-app.listen(port, err => {
-  if (err) {
-    return console.log('Something bad happened', err)
-  }
-
-  console.log(`Server is listening on ${port}`)
 })
