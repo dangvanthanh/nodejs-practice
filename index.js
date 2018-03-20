@@ -1,3 +1,4 @@
+const nunjucks = require('nunjucks')
 const express = require('express')
 const { Client } = require('pg')
 const connectionString = 'postgres://dangvanthanh@localhost/learning_objectives'
@@ -7,8 +8,25 @@ const client = new Client({
 const app = express()
 const port = 3000
 
+nunjucks.configure('views', {
+  express: app,
+  autoescape: true
+})
+
+app.set('view engine', 'html')
+app.use('/static', express.static('public'))
+
+app.get('/', (req, res) => {
+  res.render('index.html')
+})
+
 app.post('/users', (req, res, next) => {
-  const user = req.body
+  //const user = req.body
+  // Sample
+  let user = {}
+
+  user.name = 'Your Name' + new Date().getTime()
+  user.age = 25
 
   client.connect()
 

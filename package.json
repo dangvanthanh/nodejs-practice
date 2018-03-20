@@ -23,6 +23,7 @@
   "homepage": "https://github.com/dangvanthanh/learning-objectives#readme",
   "dependencies": {
     "express": "^4.16.3",
+    "nunjucks": "^3.1.2",
     "pg": "^7.4.1"
   },
   "devDependencies": {
