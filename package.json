@@ -4,8 +4,7 @@
   "description": "Learning Objectives",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "debug": "DEBUG=express* node index.js"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -24,9 +23,8 @@
   "dependencies": {
     "express": "^4.16.3",
     "nunjucks": "^3.1.2",
-    "pg": "^7.4.1"
-  },
-  "devDependencies": {
-    "pug": "^2.0.1"
+    "pg": "^7.4.1",
+    "request": "^2.85.0",
+    "request-promise": "^4.2.2"
   }
 }
