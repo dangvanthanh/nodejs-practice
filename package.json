@@ -4,7 +4,9 @@
   "description": "Learning Objectives",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs && surge docs/.vuepress/dist"
   },
   "repository": {
     "type": "git",
@@ -32,5 +34,8 @@
     "pg": "^7.4.1",
     "request": "^2.85.0",
     "request-promise": "^4.2.2"
+  },
+  "devDependencies": {
+    "vuepress": "^0.10.1"
   }
 }
