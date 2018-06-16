@@ -1,0 +1,15 @@
+{
+  "name": "learning-objectives-docs",
+  "version": "0.0.1",
+  "description": "Learning objectives document",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vuepress dev",
+    "build": "vuepress build"
+  },
+  "author": "Dang Van Thanh <chieuhue@gmail.com> (dangthanh.org)",
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^0.10.1"
+  }
+}
