@@ -52,5 +52,3 @@
   + Use GraphQL on the Frontend using Vue.js and Apollo
   + Build GraphQL Server using Node.js
 - Deployment on Surge or Now
-
-
